@@ -1,0 +1,21 @@
+﻿l_english:
+
+ reformed_appanage:0 "Reformed Appanage"
+ reformed_appanage_tooltip:0 "Can change vassal to Reformed Appanage"
+ reformed_appanage_tooltip_removed:0 "You will not be able to change vassals to reformed appanages"
+ reformed_appanage_long_desc:0 "An Reformed Appanage subject need favors to follow their overlord to war, cannot make certain diplomatic actions and will pay a fraction of his income to his overlord, and an anual tribute too. Reformed Appanage subjects can also fight each other and independent nations."
+ reformed_appanage_is_our:0 "§Y$NAME$§! is our Reformed Appanage."
+ reformed_appanage_title:0 "Reformed Appanage"
+ reformed_appanage_title_plural:0 "Reformeds Appanages"
+ reformed_appanage_overlord:0 "Reformed Appanage Overlord"
+ reformed_appanage_subject:0 "Appanage Subject"
+
+ promote_reformed_appanage_heir:0 "Appoint Crown Prince"
+ promote_reformed_appanage_heir_title:0 "Appoint Crown Prince"
+ promote_reformed_appanage_heir_desc:0 "Do you wish to appoint §Y[From.Heir.GetName]§!, heir to our reformed appanage of §Y[From.GetName]§!, to the [From.GetCrownPrincePrincess] of the §Y[Root.GetAdjective]§! throne?"
+ promote_reformed_appanage_heir_tooltip:0 "Appoint an heir from our reformed appanage subject and turn them into an heir to our throne."
+
+ create_reformed_appanage:0 "Land a Reformed Appanage"
+ create_reformed_appanage_tooltip:0 "This option permit that you change your vassal subject type to the reformed appanage type (They pay very little money, but have to pay tributes)"
+ create_reformed_appanage_title:0 "Land a Reformed Appanage"
+ create_reformed_appanage_desc:1 "Are you sure you want to Land a Reformed Appanage in §Y[From.GetName] "

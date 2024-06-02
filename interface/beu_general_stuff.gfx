@@ -1,0 +1,16 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_icon_reformed_appanage"
+		texturefile = "gfx/interface/icon_reformed_appanage.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_icon_diplomacy_am_reformed_appanage"
+		texturefile = "gfx/interface/icon_diplomacy_am_reformed_appanage.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_icon_diplomacy_lead_reformed_appanage"
+		texturefile = "gfx/interface/icon_diplomacy_lead_reformed_appanage.dds"
+	}	
+}

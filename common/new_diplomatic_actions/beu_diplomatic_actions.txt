@@ -1,0 +1,141 @@
+# Promote Appanage Heir
+promote_reformed_appanage_heir = {
+	category = influence
+
+	require_acceptance = no
+
+	is_visible = {
+		has_government_attribute = heir
+		FROM = {
+			is_subject_of = ROOT
+			is_subject_of_type = reformed_appanage
+			has_government_attribute = heir
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				FROM = { liberty_desire = 50 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_REBELLIOUS_TT
+				FROM = { liberty_desire = 50 }
+			}
+		}
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = ROOT_HAS_HEIR_TT
+				has_heir = no
+			}
+		}
+		if = {
+			limit = {
+				FROM = { has_heir = no }
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_HAS_NO_HEIR_TT
+				FROM = { has_heir = YES }
+			}
+		}
+	}
+	on_accept = {
+		FROM = { exile_heir_as = reformed_appanage_heir }
+		set_heir = reformed_appanage_heir
+	}
+	on_decline = {
+	}
+
+	ai_will_do = { # this is a trigger
+		FROM = {
+			OR = {
+				AND = {
+					heir_adm = 3
+					heir_dip = 3
+					heir_mil = 3
+				}
+				AND = {
+					heir_adm = 5
+					OR = {
+						heir_dip = 2
+						heir_mil = 2
+					}
+				}
+				AND = {
+					heir_dip = 5
+					OR = {
+						heir_adm = 2
+						heir_mil = 2
+					}
+				}
+				AND = {
+					heir_mil = 5
+					OR = {
+						heir_dip = 2
+						heir_adm = 2
+					}
+				}
+			}
+		}
+	}
+}
+
+create_reformed_appanage = {
+	category = influence
+
+	alert_index = 17 #doesn't matter. it is forced onto the subject
+	alert_tooltip = sell_indulgence_alert_tooltip #doesn't matter. it is forced onto the subject
+
+	require_acceptance = no
+
+	is_visible = {
+		has_active_policy = autonomous_estates
+		FROM = {
+			is_subject_of = ROOT
+			NOT = {
+				is_subject_of_type = personal_union
+			}
+			is_subject_other_than_tributary_trigger = yes
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = { from = { liberty_desire = 15 } }
+			custom_trigger_tooltip = {
+				tooltip = BYZ_too_much_liberty_desire
+				from = { not = { liberty_desire = 15 } }
+			}
+		}
+		if = {
+			limit = {
+				from = {
+					not = { is_subject_of_type = vassal }
+					not = { is_subject_of_type = march}
+					not = { is_subject_of_type = client_vassal }
+					not = { is_subject_of_type = client_march}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_NOT_VASSAL_OF_ROOT
+				FROM = {
+					OR = {
+						is_subject_of_type = vassal
+						is_subject_of_type = march
+						is_subject_of_type = client_vassal
+						is_subject_of_type = client_march
+					}
+				}
+			}
+		}
+	}
+	on_accept = {
+		from = { grant_independence = { keep_liberty_desire = yes } }
+		create_subject = {
+			subject_type = reformed_appanage
+			subject = FROM
+			keep_liberty_desire = yes
+		}
+	}
+}

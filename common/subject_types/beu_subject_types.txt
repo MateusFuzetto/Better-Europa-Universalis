@@ -1,0 +1,126 @@
+
+reformed_appanage = { }
+client_vassal = { }
+client_march = { }
+
+reformed_appanage = {
+	copy_from = vassal
+	count = vassal
+	sprite = GFX_icon_reformed_appanage
+	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_reformed_appanage
+	diplomacy_subject_sprite = GFX_icon_diplomacy_am_reformed_appanage
+
+	# Properties:
+	has_power_projection = yes
+	takes_diplo_slot = yes
+	gets_help_with_rebels = no
+	separatists_become_subjects = yes
+	allows_taking_land_without_independence = yes
+	forms_trade_companies = no
+	can_concentrate_development = no
+	can_use_claims = yes
+
+	pays_overlord = 0.3
+	base_liberty_desire = 0.0
+	liberty_desire_same_dynasty = -15.0
+	liberty_desire_development_ratio = 0.05
+
+	military_focus = 1.2
+
+	relative_power_class = 1
+	should_quit_wars_on_activation = yes
+
+	can_fight = {
+		independent_nations = yes
+		same_overlord = reformed_appanage
+		other_overlord = all
+	}
+	can_rival = {
+		independent_nations = yes
+		same_overlord = reformed_appanage
+		other_overlord = all
+	}
+	can_ally = {
+		same_overlord = reformed_appanage
+	}
+	can_marry = {
+		same_overlord = reformed_appanage
+	}
+
+	# Subject Interactions
+	seize_court_resources = yes
+	request_extra_levies = yes
+	grant_administrative_autonomy = yes
+	can_send_tribute = yes
+	scutage = yes
+	send_officers = yes
+	grant_core_claim = yes
+	grant_province = yes
+	place_relative_on_throne = yes
+	enforce_religion = yes
+	enforce_culture = yes
+	seize_territory = yes
+	contribute_to_capital = yes
+	conscript_general = yes
+
+
+	favors_cost_to_join_offensive_wars = 10
+
+	# Modifiers
+	modifier_overlord = clear
+	modifier_subject = clear
+	modifier_subject = {
+		modifier = reformed_appanage_subject
+	}
+	modifier_subject = {
+		modifier = subject_tax_modifier
+		trigger = {
+			overlord = {
+				has_government_attribute = subject_tax_modifier_25
+			}
+		}
+	}
+	modifier_overlord = {
+		modifier = reformed_appanage_overlord
+	}
+}
+
+client_vassal = {
+	copy_from = vassal
+	count = vassal
+
+	# Graphics:
+	diplomacy_overlord_sprite = GFX_diplomacy_leadclients
+	diplomacy_subject_sprite = GFX_diplomacy_areclients
+
+	# Properties:
+	created_by_overlord = yes
+	extend_trading_range = yes
+
+	base_liberty_desire = -25.0
+	liberty_desire_development_ratio = 0.1
+	liberty_desire_revolution = 0
+
+	# Subject Interactions:
+	customize_subject = yes
+}
+
+client_march = {
+	copy_from = march
+	count = march
+
+	# Graphics:
+	diplomacy_overlord_sprite = GFX_diplomacy_leadclients
+	diplomacy_subject_sprite = GFX_diplomacy_areclients
+
+	# Properties:
+	created_by_overlord = yes
+	extend_trading_range = yes
+
+	base_liberty_desire = -40.0
+	liberty_desire_development_ratio = 0.1
+	liberty_desire_revolution = 0
+
+	# Subject Interactions:
+	customize_subject = yes
+}
