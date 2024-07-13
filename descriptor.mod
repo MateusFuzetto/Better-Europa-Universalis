@@ -5,10 +5,11 @@ tags={
 	"Balance"
 }
 name="Better Europa Universalis"
-supported_version="v1.37.0.0"
 dependencies={
 	"Governments Expanded"
 	"Missions Expanded"
 	"Europa Expanded"
 	"Beyond Typus 11.5"
 }
+supported_version="v1.37.*"
+remote_file_id="3259315266"
